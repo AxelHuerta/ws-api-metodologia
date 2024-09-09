@@ -29,6 +29,7 @@ export class RoundService {
   public changeRoundStatus() {
     this.isRoundInProgress = !this.isRoundInProgress;
 
+    console.log("Round status changed to: ", this.isRoundInProgress);
     this.OnRoundChanged();
 
     return this.isRoundInProgress;

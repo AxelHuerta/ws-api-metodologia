@@ -6,15 +6,12 @@ export class RoundController {
 
   // Obtener el número de ronda actual
   public getRound = async (req: Request, res: Response) => {
-    console.log("getRound: ", this.roundService.getRound());
     res.json(this.roundService.getRound());
   };
 
   // Actualizar el número de ronda actual
   public updateRound = async (req: Request, res: Response) => {
     const { round } = req.body;
-
-    console.log(round);
 
     res.json(this.roundService.updateRound(round));
   };

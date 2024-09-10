@@ -3,7 +3,16 @@ import { WssService } from "./wss.service";
 export class AnswerBankService {
   constructor(private readonly wssService = WssService.instance) {}
 
-  private answers: string[] = [];
+  private answers: string[] = [
+    "Dulce",
+    "Dulce",
+    "Dulce",
+    "Dulce",
+    "Dulce",
+    "Dulce",
+    "Dulce",
+    "Dulce",
+  ];
 
   // Obtener las respuestas
   public getAnswers() {

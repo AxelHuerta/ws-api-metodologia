@@ -24,30 +24,18 @@ export class RoundService {
   public getIsRoundInProgress() {
     return this.isRoundInProgress;
   }
-
-  // Cambiar el estado de la ronda actual
-  // TODO: delete this method
-  public changeRoundStatus() {
-    this.isRoundInProgress = !this.isRoundInProgress;
-
-    console.log("Round status changed to: ", this.isRoundInProgress);
-    this.OnRoundChanged();
-
-    return this.isRoundInProgress;
-  }
-
+  //
   // Iniciar una nueva ronda
   public startRound() {
     this.isRoundInProgress = true;
-    console.log("Round status changed to: ", this.isRoundInProgress);
     this.OnRoundChanged();
 
     return this.isRoundInProgress;
   }
 
+  // Finalizar la ronda actual
   public endRound() {
     this.isRoundInProgress = false;
-    console.log("Round status changed to: ", this.isRoundInProgress);
     this.OnRoundChanged();
 
     return this.isRoundInProgress;

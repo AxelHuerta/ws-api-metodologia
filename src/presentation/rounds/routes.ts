@@ -9,7 +9,6 @@ export class RoundRoutes {
     router.get("/", roundController.getRound);
     router.post("/", roundController.updateRound);
     router.get("/status", roundController.getRoundStatus);
-    // router.post("/status", roundController.changeRoundStatus);
     router.post("/start", roundController.startRound);
     router.post("/end", roundController.endRound);
 

@@ -21,11 +21,6 @@ export class RoundController {
     res.json(this.roundService.getIsRoundInProgress());
   };
 
-  // Cambiar el estado de la ronda actual
-  public changeRoundStatus = async (_req: Request, res: Response) => {
-    res.json(this.roundService.changeRoundStatus());
-  };
-
   // Iniciar una nueva ronda
   public startRound = async (_req: Request, res: Response) => {
     res.json(this.roundService.startRound());

@@ -45,6 +45,11 @@ export class UserService {
     return user;
   }
 
+  // Obtener el límite de usuarios
+  public getLimitOfUsers() {
+    return this.MAX_USERS;
+  }
+
   // Establecer el límite de usuarios
   public setLimitOfUsers(limit: number) {
     this.MAX_USERS = limit;

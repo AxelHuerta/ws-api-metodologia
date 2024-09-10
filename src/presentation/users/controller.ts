@@ -32,6 +32,11 @@ export class UserController {
     res.json(this.userService.updateUser(Number(id), round, answer));
   };
 
+  // Obtener el límite de usuarios
+  public getLimitOfUsers = async (_req: Request, res: Response) => {
+    res.json(this.userService.getLimitOfUsers());
+  };
+
   // Establecer el límite de usuarios
   public setLimitOfUsers = async (req: Request, res: Response) => {
     const { limit } = req.body;

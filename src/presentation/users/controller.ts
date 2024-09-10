@@ -4,13 +4,21 @@ import { UserService } from "../services/user.service";
 export class UserController {
   constructor(private readonly userService = new UserService()) {}
 
-  public getUsers = async (req: Request, res: Response) => {
+  public getUsers = async (_req: Request, res: Response) => {
     res.json(this.userService.getUsers());
   };
 
   public createUser = async (req: Request, res: Response) => {
+    const users = this.userService.getUsers();
+
+    // Limitar a 3 jugadores
+    if (users.length >= 3) {
+      console.log("Maximum 3 players");
+      res.json({ error: "Maximum 3 players" });
+      return;
+    }
+
     const { name } = req.body;
-    console.log(name);
     res.json(this.userService.createUser(name));
   };
 

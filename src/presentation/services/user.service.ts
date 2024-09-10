@@ -5,11 +5,14 @@ export class UserService {
   constructor(private readonly wssService = WssService.instance) {}
 
   public readonly users: User[] = [];
+  public MAX_USERS = 8;
 
+  // Obtener todos los usuarios
   public getUsers() {
     return this.users;
   }
 
+  // Crear un usuario
   public createUser(name: string) {
     const user: User = {
       id: this.users.length + 1,
@@ -23,6 +26,7 @@ export class UserService {
     return user;
   }
 
+  // Actualizar un usuario
   public updateUser(id: number, round: number, answer: string) {
     const user = this.users.find((u) => u.id === id);
 
@@ -39,6 +43,15 @@ export class UserService {
     this.OnUserChanged();
 
     return user;
+  }
+
+  // Establecer el límite de usuarios
+  public setLimitOfUsers(limit: number) {
+    this.MAX_USERS = limit;
+
+    this.OnUserChanged();
+
+    return this.MAX_USERS;
   }
 
   private OnUserChanged() {

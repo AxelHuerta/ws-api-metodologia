@@ -5,7 +5,7 @@ export class RoundController {
   constructor(private readonly roundService = new RoundService()) {}
 
   // Obtener el número de ronda actual
-  public getRound = async (req: Request, res: Response) => {
+  public getRound = async (_req: Request, res: Response) => {
     res.json(this.roundService.getRound());
   };
 
@@ -17,12 +17,22 @@ export class RoundController {
   };
 
   // Obtener el estado de la ronda actual
-  public getRoundStatus = async (req: Request, res: Response) => {
+  public getRoundStatus = async (_req: Request, res: Response) => {
     res.json(this.roundService.getIsRoundInProgress());
   };
 
   // Cambiar el estado de la ronda actual
-  public changeRoundStatus = async (req: Request, res: Response) => {
+  public changeRoundStatus = async (_req: Request, res: Response) => {
     res.json(this.roundService.changeRoundStatus());
+  };
+
+  // Iniciar una nueva ronda
+  public startRound = async (_req: Request, res: Response) => {
+    res.json(this.roundService.startRound());
+  };
+
+  // Finalizar la ronda actual
+  public endRound = async (_req: Request, res: Response) => {
+    res.json(this.roundService.endRound());
   };
 }

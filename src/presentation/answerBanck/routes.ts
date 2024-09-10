@@ -4,10 +4,12 @@ import { AnswerBankController } from "./controller";
 export class AnswerBankRoutes {
   static get routes() {
     const router = Router();
-    const roundController = new AnswerBankController();
+    const answerBankController = new AnswerBankController();
 
-    router.get("/", roundController.getAnswerBank);
-    router.post("/", roundController.updateAnswerBank);
+    router.get("/", answerBankController.getAnswerBank);
+    router.post("/", answerBankController.updateAnswerBank);
+    router.get("/status", answerBankController.getStatus);
+    router.post("/status", answerBankController.setStatus);
 
     return router;
   }

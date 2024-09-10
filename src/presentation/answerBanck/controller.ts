@@ -5,15 +5,25 @@ export class AnswerBankController {
   constructor(private readonly answerBankService = new AnswerBankService()) {}
 
   // Obtener las respuestas
-  public getAnswerBank = async (req: Request, res: Response) => {
-    // console.log("getRound: ", this.answerBankService.getAnswers());
+  public getAnswerBank = async (_req: Request, res: Response) => {
     res.json(this.answerBankService.getAnswers());
   };
 
   // Actualizar el banco de respuestas
   public updateAnswerBank = async (req: Request, res: Response) => {
     const { answerBank } = req.body;
-    console.log(answerBank);
     res.json(this.answerBankService.updateAnswers(answerBank));
+  };
+
+  // Obtener el estado del banco de respuestas
+  public getStatus = async (_req: Request, res: Response) => {
+    res.json(this.answerBankService.getStatus());
+  };
+
+  // Actualizar el estado del banco de respuestas
+  public setStatus = async (req: Request, res: Response) => {
+    const { status } = req.body;
+    console.log("status: ", status);
+    res.json(this.answerBankService.setStatus(status));
   };
 }

@@ -14,6 +14,8 @@ export class AnswerBankService {
     "Dulce",
   ];
 
+  private status: boolean = true;
+
   // Obtener las respuestas
   public getAnswers() {
     return this.answers;
@@ -26,6 +28,20 @@ export class AnswerBankService {
     this.OnAnswersBankChanged();
 
     return answers;
+  }
+
+  // Obtener el estado del banco de respuestas
+  public getStatus() {
+    return this.status;
+  }
+
+  // Actualizar el estado del banco de respuestas
+  public setStatus(status: boolean) {
+    this.status = status;
+
+    this.OnAnswersBankChanged();
+
+    return status;
   }
 
   private OnAnswersBankChanged() {

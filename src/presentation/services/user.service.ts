@@ -46,7 +46,6 @@ export class UserService {
     return user;
   }
 
-  // Obtener el límite de usuarios
   public getLimitOfUsers() {
     return this.MAX_USERS;
   }
@@ -57,6 +56,7 @@ export class UserService {
 
     this.OnUserChanged();
 
+    console.log(`Limit of users changed to ${this.MAX_USERS}`);
     return this.MAX_USERS;
   }
 

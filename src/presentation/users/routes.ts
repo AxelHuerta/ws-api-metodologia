@@ -9,8 +9,6 @@ export class UserRoutes {
     router.get("/", userController.getUsers);
     router.post("/", userController.createUser);
     router.post("/:id", userController.updateUser);
-    router.get("/limit", userController.getLimitOfUsers);
-    router.post("/limit", userController.setLimitOfUsers);
 
     return router;
   }

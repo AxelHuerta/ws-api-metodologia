@@ -14,8 +14,8 @@ export class UserController {
     const users = this.userService.getUsers();
 
     // Limitar a 3 jugadores
-    if (users.length >= 3) {
-      res.json({ error: "Maximum 3 players" });
+    if (users.length >= this.userService.MAX_USERS) {
+      res.json({ error: `Maximum ${this.userService.MAX_USERS} players` });
       return;
     }
 
@@ -30,17 +30,5 @@ export class UserController {
     const { round, answer } = req.body;
 
     res.json(this.userService.updateUser(Number(id), round, answer));
-  };
-
-  // Obtener el límite de usuarios
-  public getLimitOfUsers = async (_req: Request, res: Response) => {
-    res.json(this.userService.getLimitOfUsers());
-  };
-
-  // Establecer el límite de usuarios
-  public setLimitOfUsers = async (req: Request, res: Response) => {
-    const { limit } = req.body;
-
-    res.json(this.userService.setLimitOfUsers(limit));
   };
 }

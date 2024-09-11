@@ -30,6 +30,7 @@ export class UserService {
   public updateUser(id: number, round: number, answer: string) {
     const user = this.users.find((u) => u.id === id);
 
+    console.log(id, round, answer);
     if (!user) {
       throw new Error("User not found");
     }

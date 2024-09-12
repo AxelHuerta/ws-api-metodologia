@@ -3,12 +3,18 @@ import { AppRoutes } from "./presentation/routes";
 import { Server } from "./presentation/server";
 import { createServer } from "http";
 import { WssService } from "./presentation/services/wss.service";
+import { MongoDatabase, UserModel } from "./data/mongo";
 
 (async () => {
   main();
 })();
 
-function main() {
+async function main() {
+  await MongoDatabase.connect({
+    mongoUrl: envs.MONGO_URL,
+    dbName: envs.MONGO_DB,
+  });
+
   const server = new Server({
     port: envs.PORT,
   });

@@ -1,11 +1,31 @@
+import { UserModel } from "../../data/mongo";
 import { User } from "../../interface/user";
 import { WssService } from "./wss.service";
 
 export class UserService {
   constructor(private readonly wssService = WssService.instance) {}
 
-  public readonly users: User[] = [];
+  public users: User[] = [];
   public MAX_USERS = 8;
+
+  // Obtener todos los usuarios
+  public async getAllUsers() {
+    return await UserModel.find();
+  }
+
+  public async saveRoundUsers() {
+    try {
+      const savedUsers = await UserModel.insertMany(this.users);
+      return savedUsers;
+    } catch (error) {
+      throw new Error("Error saving users");
+    }
+  }
+
+  // Limpiar la lista de usuarios
+  public cleanUsersArray() {
+    this.users = [];
+  }
 
   // Obtener todos los usuarios
   public getUsers() {

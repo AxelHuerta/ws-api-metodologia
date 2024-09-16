@@ -3,7 +3,7 @@ import { AppRoutes } from "./presentation/routes";
 import { Server } from "./presentation/server";
 import { createServer } from "http";
 import { WssService } from "./presentation/services/wss.service";
-import { MongoDatabase, UserModel } from "./data/mongo";
+import { MongoDatabase } from "./data/mongo";
 
 (async () => {
   main();

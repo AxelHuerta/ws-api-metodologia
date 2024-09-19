@@ -13,6 +13,7 @@ export class UserService {
     return await UserModel.find();
   }
 
+  // Guardar los usuarios en la base de datos
   public async saveRoundUsers() {
     try {
       const savedUsers = await UserModel.insertMany(this.users);
@@ -56,7 +57,8 @@ export class UserService {
     }
 
     if (user.answers.length <= round) {
-      user.answers.push(answer);
+      // user.answers.push(answer);
+      user.answers[round] = answer;
     } else {
       user.answers[round] = answer;
     }
